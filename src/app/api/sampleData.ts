@@ -3,24 +3,14 @@ export const sampleData: IEvent[] = [
   {
     id: "1",
     title: "Trip to Empire State building",
-    date: new Date("2018/03/21"),
+    date: "2018/03/21",
     category: "culture",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: {
-      address: "NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
-    venue: {
-      address: "Empire State Building, 5th Avenue, New York, NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
+    city: "NY, USA",
+
+    venue: "Empire State Building, 5th Avenue, New York, NY, USA",
+
     hostedBy: {
       id: "a",
       displayName: "Bob",
@@ -57,24 +47,13 @@ export const sampleData: IEvent[] = [
   {
     id: "2",
     title: "Trip to Punch and Judy Pub",
-    date: new Date("2018/03/18"),
+    date: "2018/03/18",
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: {
-      address: "NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
-    venue: {
-      address: "Empire State Building, 5th Avenue, New York, NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
+    city: "NY, USA",
+    venue: "Empire State Building, 5th Avenue, New York, NY, USA",
+
     hostedBy: {
       id: "b",
       displayName: "Tom",
@@ -106,24 +85,14 @@ export const sampleData: IEvent[] = [
   {
     id: "3",
     title: "Trip to Punch and Judy Pub",
-    date: new Date("2018/03/18"),
+    date: "2018/03/18",
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: {
-      address: "NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
-    venue: {
-      address: "Empire State Building, 5th Avenue, New York, NY, USA",
-      latLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002,
-      },
-    },
+    city: "NY, USA",
+
+    venue: "Empire State Building, 5th Avenue, New York, NY, USA",
+
     hostedBy: {
       id: "b",
       displayName: "Tom",
@@ -155,24 +124,14 @@ export const sampleData: IEvent[] = [
   {
     id: "4",
     title: "Trip to Punch and Judy Pub",
-    date: new Date("2018/03/18"),
+    date: "2018/03/18",
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: {
-      address: "London, UK",
-      latLng: {
-        lat: 51.5118074,
-        lng: -0.12300089999996544,
-      },
-    },
-    venue: {
-      address: "Punch & Judy, Henrietta Street, London, UK",
-      latLng: {
-        lat: 51.5118074,
-        lng: -0.12300089999996544,
-      },
-    },
+    city: "London, UK",
+
+    venue: "Punch & Judy, Henrietta Street, London, UK",
+
     hostedBy: {
       id: "b",
       displayName: "Tom",

@@ -5,8 +5,10 @@ import EventListAttendee from "./EventListAttendee";
 
 interface IProp {
   _event: IEvent;
+  selectEvent:(event:IEvent)=>void;
+  deleteEvent:(id:string)=>void;
 }
-const EventListItem: FC<IProp> = ({ _event }) => {
+const EventListItem: FC<IProp> = ({ _event, selectEvent, deleteEvent }) => {
   return (
     <Segment.Group>
       <Segment>
@@ -24,8 +26,8 @@ const EventListItem: FC<IProp> = ({ _event }) => {
       </Segment>
       <Segment>
         <span>
-          <Icon name="clock" /> {_event.date.toDateString()}
-          <Icon name="marker" /> {_event.venue.address}
+          <Icon name="clock" /> {_event.date}
+          <Icon name="marker" /> {_event.venue}
         </span>
       </Segment>
       <Segment secondary>
@@ -37,7 +39,8 @@ const EventListItem: FC<IProp> = ({ _event }) => {
       </Segment>
       <Segment clearing>
         <span>{_event.description}</span>
-        <Button color="teal" content="View" floated="right" />
+        <Button onClick={()=>deleteEvent(_event.id)} color="red" content="delete" floated="right" />
+        <Button onClick={()=>selectEvent(_event)} color="teal" content="View" floated="right" />
       </Segment>
     </Segment.Group>
   );

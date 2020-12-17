@@ -1,13 +1,13 @@
 import { IUser } from "./user";
 
 export interface IEvent {
-  id: string;
+  id: any;
   title: string;
-  date: Date;
+  date: string;
   category: string;
   description: string;
-  city: { address: string; latLng: { lat: number; lng: number } };
-  venue: { address: string; latLng: { lat: number; lng: number } };
+  city: string
+  venue: string
   hostedBy: IUser;
   attendees: IUser[];
 }
