@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import { Button, Icon, Item, List, Segment } from "semantic-ui-react";
 import { IEvent } from "../../api/models/Event";
 import EventListAttendee from "./EventListAttendee";
@@ -40,7 +41,7 @@ const EventListItem: FC<IProp> = ({ _event, selectEvent, deleteEvent }) => {
       <Segment clearing>
         <span>{_event.description}</span>
         <Button onClick={()=>deleteEvent(_event.id)} color="red" content="delete" floated="right" />
-        <Button onClick={()=>selectEvent(_event)} color="teal" content="View" floated="right" />
+        <Button as={Link} to={`/events/${_event.id}`} color="teal" content="View" floated="right" />
       </Segment>
     </Segment.Group>
   );

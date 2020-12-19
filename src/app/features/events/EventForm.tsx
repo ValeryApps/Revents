@@ -12,8 +12,8 @@ interface IProp {
   eventSelected :IEvent|null
 }
 const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateEvent }) => {
-  const initialEventData = eventSelected ?? {
-        id: cuid(),
+  const initialEventData = eventSelected !==null ? eventSelected : {
+        id: cuid,
         title: "",
         category: "",
         description: "",
@@ -44,7 +44,7 @@ const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateE
             type="text"
             placeholder="Event title"
             name="title"
-            value={_event$.title}
+            value={eventSelected ? _event$.title:''}
             onChange={(e) => handleOnChange(e)}
           />
         </Form.Field>
@@ -53,7 +53,7 @@ const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateE
             type="text"
             placeholder="Category"
             name="category"
-            value={_event$.category}
+            value={eventSelected ?_event$.category:''}
             onChange={(e) => handleOnChange(e)}
           />
         </Form.Field>
@@ -62,7 +62,7 @@ const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateE
             type="text"
             placeholder="Description"
             name="description"
-            value={_event$.description}
+            value={eventSelected ?_event$.description:''}
             onChange={(e) => handleOnChange(e)}
           />
         </Form.Field>
@@ -71,7 +71,7 @@ const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateE
             type="text"
             placeholder="City"
             name="city"
-            value={_event$.city}
+            value={eventSelected ?_event$.city:''}
             onChange={(e) => handleOnChange(e)}
           />
         </Form.Field>
@@ -80,7 +80,7 @@ const EventForm: FC<IProp> = ({ setFormOpen, createEvent, eventSelected, updateE
             type="text"
             placeholder="Venue"
             name="venue"
-            value={_event$.venue}
+            value={eventSelected ?_event$.venue:''}
             onChange={(e) => handleOnChange(e)}
           />
         </Form.Field>
