@@ -1,25 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import {createBrowserHistory} from 'history';
-import 'react-toastify/dist/ReactToastify.min.css';
-import 'react-widgets/dist/css/react-widgets.css';
-import 'semantic-ui-css/semantic.min.css';
-import './App.css';
-import App from './app/App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import "react-toastify/dist/ReactToastify.min.css";
+import "react-widgets/dist/css/react-widgets.css";
+import "semantic-ui-css/semantic.min.css";
+import "./App.css";
+import App from "./app/App";
+import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import configureStore from "./app/store/configureStore";
+import ScrollToTop from "./app/features/ScrollToTop";
 //import ScrollToTop from './app/layout/ScrollToTop';
 //import dateFnsLocalizer from 'react-widgets-date-fns';
 
 //dateFnsLocalizer();
 
 export const history = createBrowserHistory();
-
+const store = configureStore();
 ReactDOM.render(
-  <BrowserRouter >
+  <Provider store={store}>
+    <BrowserRouter>
+      <ScrollToTop />
       <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+    </BrowserRouter>
+  </Provider>,
+
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

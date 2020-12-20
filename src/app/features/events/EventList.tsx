@@ -4,14 +4,12 @@ import EventListItem from "./EventListItem";
 
 interface IProp {
   events: IEvent[];
-  selectEvent:(event:IEvent)=>void;
-  deleteEvent:(id:string)=>void;
 }
-const EventList: FC<IProp> = ({ events, selectEvent, deleteEvent }) => {
+const EventList: FC<IProp> = ({ events }) => {
   return (
     <div>
       {events.map((_event) => (
-        <EventListItem _event={_event} key={_event.id}  selectEvent = {selectEvent} deleteEvent = {deleteEvent} />
+        <EventListItem _event={_event} key={_event.id} />
       ))}
     </div>
   );

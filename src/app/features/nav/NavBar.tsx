@@ -18,6 +18,7 @@ const NavBar: FC<IProp> = () => {
             Re-vents
           </Menu.Item>
           <Menu.Item name="events" as={NavLink} to="/events"/>
+          <Menu.Item name="sandbox" as={NavLink} to="/sandbox"/>
          {authenticated && <Menu.Item as={NavLink} to="/create_event">
             <Button
               content="Create Event"

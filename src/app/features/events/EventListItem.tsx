@@ -1,21 +1,22 @@
 import React, { FC } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button, Icon, Item, List, Segment } from "semantic-ui-react";
 import { IEvent } from "../../api/models/Event";
+import { deleteEvent } from "./eventAction";
 import EventListAttendee from "./EventListAttendee";
 
 interface IProp {
   _event: IEvent;
-  selectEvent:(event:IEvent)=>void;
-  deleteEvent:(id:string)=>void;
 }
-const EventListItem: FC<IProp> = ({ _event, selectEvent, deleteEvent }) => {
+const EventListItem: FC<IProp> = ({ _event }) => {
+  const dispatch = useDispatch();
   return (
     <Segment.Group>
       <Segment>
         <Item.Group>
           <Item>
-            <Item.Image src={_event.hostedBy.photoURL} circular size="tiny" />
+            <Item.Image src={_event.hostedBy.photoURL} circular size='tiny' />
             <Item.Content>
               <Item.Header>{_event.title}</Item.Header>
               <Item.Description>
@@ -27,8 +28,8 @@ const EventListItem: FC<IProp> = ({ _event, selectEvent, deleteEvent }) => {
       </Segment>
       <Segment>
         <span>
-          <Icon name="clock" /> {_event.date}
-          <Icon name="marker" /> {_event.venue}
+          <Icon name='clock' /> {_event.date}
+          <Icon name='marker' /> {_event.venue}
         </span>
       </Segment>
       <Segment secondary>
@@ -40,8 +41,19 @@ const EventListItem: FC<IProp> = ({ _event, selectEvent, deleteEvent }) => {
       </Segment>
       <Segment clearing>
         <span>{_event.description}</span>
-        <Button onClick={()=>deleteEvent(_event.id)} color="red" content="delete" floated="right" />
-        <Button as={Link} to={`/events/${_event.id}`} color="teal" content="View" floated="right" />
+        <Button
+          onClick={() => dispatch(deleteEvent(_event.id))}
+          color='red'
+          content='delete'
+          floated='right'
+        />
+        <Button
+          as={Link}
+          to={`/events/${_event.id}`}
+          color='teal'
+          content='View'
+          floated='right'
+        />
       </Segment>
     </Segment.Group>
   );
