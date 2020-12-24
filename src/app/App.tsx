@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
+import ModalManager from "./common/modals/ModalManager";
 import EventDetailedPage from "./features/events/EventDetailedPage";
 import EventForm from "./features/events/EventForm";
 import EventsDasboard from "./features/events/EventsDasboard";
@@ -11,6 +12,7 @@ import Sandbox from "./sandBox/SandBox";
 function App() {
   return (
     <>
+      <ModalManager />
       <Route exact path='/' component={HomePage} />
       <Route
         path={"/(.+)"}

@@ -5,6 +5,7 @@ import { Button, Icon, Item, List, Segment } from "semantic-ui-react";
 import { IEvent } from "../../api/models/Event";
 import { deleteEvent } from "./eventAction";
 import EventListAttendee from "./EventListAttendee";
+import { format } from "date-fns";
 
 interface IProp {
   _event: IEvent;
@@ -28,7 +29,7 @@ const EventListItem: FC<IProp> = ({ _event }) => {
       </Segment>
       <Segment>
         <span>
-          <Icon name='clock' /> {_event.date}
+          <Icon name='clock' /> {format(_event.date, "MMMM d, yyyy HH:mm")}
           <Icon name='marker' /> {_event.venue}
         </span>
       </Segment>

@@ -1,11 +1,13 @@
 ﻿import { combineReducers } from "redux";
 import testReducer from "../sandBox//testReducer";
 import { eventReducer } from "../features/events/eventReducer";
-//import { ModalReducer } from "../modals/ModalReducer";
+import modalReducer from "../common/modals/modalReducer";
+import { authReducer } from "../features/auth/authReducer";
 
 const rootReducer = combineReducers({
   test: testReducer,
   event: eventReducer,
-  //modal: ModalReducer,
+  modals: modalReducer,
+  auth: authReducer,
 });
 export default rootReducer;

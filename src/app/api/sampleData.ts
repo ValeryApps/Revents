@@ -3,7 +3,7 @@ export const sampleData: IEvent[] = [
   {
     id: "1",
     title: "Trip to Empire State building",
-    date: "2018/03/21",
+    date: new Date("2018/03/21"),
     category: "culture",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
@@ -47,7 +47,7 @@ export const sampleData: IEvent[] = [
   {
     id: "2",
     title: "Trip to Punch and Judy Pub",
-    date: "2018/03/18",
+    date: new Date("2018/03/18"),
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
@@ -85,7 +85,7 @@ export const sampleData: IEvent[] = [
   {
     id: "3",
     title: "Trip to Punch and Judy Pub",
-    date: "2018/03/18",
+    date: new Date("2018/03/18"),
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
@@ -124,7 +124,7 @@ export const sampleData: IEvent[] = [
   {
     id: "4",
     title: "Trip to Punch and Judy Pub",
-    date: "2018/03/18",
+    date: new Date("2018/03/18 9:34 pm"),
     category: "drinks",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
