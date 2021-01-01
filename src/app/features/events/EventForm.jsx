@@ -1,3 +1,4 @@
+/* global google*/
 import cuid from "cuid";
 import { Formik, Form } from "formik";
 import React from "react";
@@ -7,6 +8,7 @@ import { Button, Header, Segment } from "semantic-ui-react";
 import * as Yup from "yup";
 import { categoryData } from "../../api/categoryOptions";
 import CustomInputField from "../../common/form/CustomInputField";
+import CustomPlaceInput from "../../common/form/CustomPlaceInput";
 import CustomSelectInput from "../../common/form/CustomSelectInput";
 import { CustomTextArea } from "../../common/form/CustomTextArea";
 import { createEvent, updateEvent } from "./eventAction";
@@ -27,8 +29,8 @@ const EventForm = ({ match, history }) => {
         title: "",
         category: "",
         description: "",
-        city: "",
-        venue: "",
+        city: { address: "", latLong: null },
+        venue: { address: "", latLong: null },
         date: "",
         hostedBy: {
           id: cuid(),
@@ -42,9 +44,13 @@ const EventForm = ({ match, history }) => {
     title: Yup.string().required(),
     category: Yup.string().required(),
     description: Yup.string().required(),
-    city: Yup.string().required(),
-    venue: Yup.string().required(),
-    date: Yup.string().required(),
+    city: Yup.object().shape({
+      address: Yup.string().required(),
+    }),
+    venue: Yup.object().shape({
+      address: Yup.string().required(),
+    }),
+    //date: Yup.string().required(),
   });
 
   const handleFormSubmit = (values) => {
@@ -69,7 +75,7 @@ const EventForm = ({ match, history }) => {
         onSubmit={(values) => {
           handleFormSubmit(values);
         }}>
-        {({ isSubmitting, dirty, isValid }) => (
+        {({ isSubmitting, dirty, isValid, values }) => (
           <Form translate='' className='ui form'>
             <Header sub content=' Event Details' color='teal' />
             <CustomInputField name='title' placeholder='title' />
@@ -84,9 +90,18 @@ const EventForm = ({ match, history }) => {
               //row={5}
             />
             <Header sub content=' Event Location' color='teal' />
-            <CustomInputField name='city' placeholder='city' />
-            <CustomInputField name='venue' placeholder='venue' />
-            <CustomInputField name='date' placeholder='date' type='date' />
+            <CustomPlaceInput name='city' placeholder='city' />
+            <CustomPlaceInput
+              disabled={values.city.latLong}
+              name='venue'
+              placeholder='venue'
+              options={{
+                Location: new google.maps.LatLng(values.city.latLong),
+                radius: 1000,
+                types: ["establishment"],
+              }}
+            />
+
             <Button
               loading={isSubmitting}
               disabled={isSubmitting || !dirty || !isValid}

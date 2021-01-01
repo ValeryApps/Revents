@@ -30,7 +30,7 @@ const EventListItem: FC<IProp> = ({ _event }) => {
       <Segment>
         <span>
           <Icon name='clock' /> {format(_event.date, "MMMM d, yyyy HH:mm")}
-          <Icon name='marker' /> {_event.venue}
+          <Icon name='marker' /> {_event.venue.address}
         </span>
       </Segment>
       <Segment secondary>

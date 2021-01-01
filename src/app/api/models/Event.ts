@@ -6,8 +6,20 @@ export interface IEvent {
   date: Date;
   category: string;
   description: string;
-  city: string;
-  venue: string;
+  city: {
+    address: string;
+    latLng: {
+      lat: number;
+      lng: number;
+    };
+  };
+  venue: {
+    address: string;
+    latLng: {
+      lat: number;
+      lng: number;
+    };
+  };
   hostedBy: IUser;
   attendees: IUser[];
 }
